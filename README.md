@@ -60,10 +60,11 @@ The frequency for the time series models was 252. The variable being transformed
 The first analysis run on the data were simple time series forecasting methods. These methods are the average method, the naïve method, and the seasonal naïve method. The naïve method uses the value from the last observation and the seasonal naïve method uses the value from the previous season. The average method was ineffective on this data and produced high errors and a poor graph, it was thus abandoned. The naïve method (see Figure 3) produced the smallest RMSE while the seasonal naïve method (see Appendix A4) produced a higher RMSE (Table 1). 
 
 <sub>Table 1. A summary table of the different metrics used to compare Simple Forecasting models</sub>
-| Model |	Raw RMSE |	Raw MAE |	Normalized RMSE |
+
+|Model |Raw RMSE |Raw MAE |Normalized RMSE |
 | ---- | ----- | ----- | ----- |
-| Naïve Method |	793.1671 |	559.6588 |	0.085109976 |
-| Seasonal Naïve Method |	1241.509 |	1110.549 |	0.13321884 |
+| Naïve Method |793.1671 |559.6588 |0.085109976 |
+| Seasonal Naïve Method |1241.509 |1110.549 |0.13321884 |
 
  
 <p align="center"><sub>Figure 3. Forecast of naïve method model displaying predicted, trend, and actual data</sub></p>
