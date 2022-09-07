@@ -76,7 +76,7 @@ Following, various linear regression techniques were applied. The first techniqu
 
 <sub>Table 2. A summary table of the different metrics used to compare Linear Regression models</sub>
 
-| Model |	Raw RMSE |	Raw MAE |	Normalized RMSE |	Adjusted-R Squared |
+| Model |Raw RMSE |Raw MAE |Normalized RMSE |Adjusted-R Squared |
 | ---- | ----- | ----- | ------ | ------ |				
 | Linear Regression 1 |	1576.681 |	1328.289 |	0.169184125 |	0.9163 |
 | Linear Regression 2 |	1667.266 |	1395.311 |	0.178904255 |	0.915 |
