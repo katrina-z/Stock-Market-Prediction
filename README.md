@@ -75,6 +75,7 @@ The first analysis run on the data were simple time series forecasting methods. 
 Following, various linear regression techniques were applied. The first technique was trend linear regression (Figure 4). This method produced a moderate error of 0.169 and a high R-squared of  0.916 (Table 2). Next, a regression using trend plus season was applied (Appendix A5). This method produced a higher error than the linear regression model using only trend (Table 2). The R-squared values between the two models were similar.  See Box 1 for summary.
 
 <sub>Table 2. A summary table of the different metrics used to compare Linear Regression models</sub>
+
 | Model |	Raw RMSE |	Raw MAE |	Normalized RMSE |	Adjusted-R Squared |
 | ---- | ----- | ----- | ------ | ------ |				
 | Linear Regression 1 |	1576.681 |	1328.289 |	0.169184125 |	0.9163 |
@@ -117,6 +118,7 @@ The final time series method applied was the Auto-Regressive Integrated Moving A
 <p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866396-a9bb61f9-5833-41bf-aa04-cb276eb032d6.png"></p>
 
 <sub>Table 3. A summary table of the RMSE and MAE metrics between training and testing data in ARIMA Model</sub>
+
 | Model	| RMSE |	MAE |
 | ----- | ----- | ----- |
 |Training | 	116.4019 |	84.63129 |
@@ -150,6 +152,7 @@ The target variable being predicted is again the variable Close which will be te
 The formula for the neural net algorithms is set to predict the variable Close based on the 10 predictor variables of Volume, Return2, Return3, Return4, ROC5, Oil, Gold, Gas, NYSEReturn, and DollarIndex. The first neural net algorithm contained zero hidden layers (see Appendix A7). It had a very poor performance in which correlation and adjusted R-squared were low (Table 4).  However, the RMSE of 0.2669626  and MAE of 0.2407253 were satisfactory. Now, further models will be explored in which the hidden layers are increased. A second model was run with 3 hidden layers which generated a higher correlation of 0.2302818 between predicted and actual values while the RMSE and MAE metrics stayed nearly the same as they had been in the previous model (Appendix A8 and A9). The R-squared of this model also increased slightly to 5% variance explained. Finally, a third model with even further hidden layers was run. This third and final model contained 6 hidden layers. This model proved to be the best model as it presented a higher correlation of 0.3190142 as well as slightly lower errors compared to the other two models (Table 4). See Figures 6 and 7 below for the visualization and scatterplot of the final neural net model. Finally, a variable importance calculation was run to determine which variables had the greatest influence. It was determined that NYSEReturn was the most significant variable in predicting the Close price (Appendix A10). 
 
 <sub>Table 4. A summary table of ANN analysis of 3 different models and the 4 metrics being used within the comparison</sub>
+
 |Model |	RMSE |	MAE |	R-squared  |	Correlation |
 | ----- | ----- | ----- | ------ | ----  |
 |Neural Net 1 |	0.2669626 |	0.2407253 |	0.01987 |	0.1476997 |
@@ -202,6 +205,7 @@ The artificial neural network models all produced surprising results when consid
 As the best models from each technique have now been selected it is necessary to compare all of these models to determine best fit. See Table 5 below for a summarized comparison of the normalized RMSE and MAE values as well as R-squared values for the models in which it applies. Upon first glance, it may be inferred that the naïve method results in the best model due to it having the lowest RMSE and MAE. However, it is very basic and not taking all factors into account but rather just using the previous days information to predict the next day. This could be effective but is not necessarily applicable when looking at a financial market because although it is more effective than looking at seasonality, large dips can occur between days due to unexpected events and it does not consider the overall trend. The ARIMA model is similarly likely not the best option. The variation between the training RMSE and final model RMSE is of great concern. The Dow Jones index is dealing in millions of dollars daily and having such a large difference in the price of the market between the training and testing set indicates this model was overfit. That leaves the final two models to be compared, either linear regression or neural networks. First, they have significantly different RMSE and MAE values. When considering that the scale they are being compared on is between 0 and 1, the difference between 0.17 and 0.26 is great. The linear regression model therefore has significantly lower error between its predicted and observed values, making it more reliable. People involved in the stock market like to be sure of their decisions and if one option is more reliable than the other it is an easy choice. The linear regression model is further embossed when considering its R-squared value compared to the neural network model. 91% versus 10% is a major difference. This means that the predictor variables in the linear regression model are accounting for 91% of the Close variable. This is quite reliable and would bring comfort to anybody investing in the stock market. Therefore, linear regression model 1 is the best fit model for the Dow Jones Index. 
 
 <sub>Table 5. Metrics used to compare all models</sub>
+
 | Algorithm | Model |	Normalized RMSE |	Normalized MAE |	Adjusted-R Squared |
 | ----| ----- | ------ | ----- | ----- |
 | Time Series  |	Naïve Method  |	0.085109976 |	0.060053609 |	NA |
@@ -214,7 +218,6 @@ As the best models from each technique have now been selected it is necessary to
 Attempting to measure the stock market has been of interest to scholars and investors for decades and there have been significant improvements in this area in the past years. The recent integration of machine learning within the stock market has only worked to ignite more interest and in turn, drive the need for more technological advancements of these techniques. When considering using machine learning for predicting the stock market there are two general techniques which are largely considered to yield the most predictable results, time series techniques and artificial neural networks. Ultimately, it was determined that the time series technique of linear regression was the most effective in predicting this market index. Linear regression resulted in the lowest errors and the highest account of variance. This may be unexpected due to the sophistication of other models like artificial neural networks; however, it is clear, the simplest can be best.
 
 ## References
-
 
 Ariyo, A.A., Adewumi, O., Ayo, C. K., 2014. Stock Price Prediction Using the ARIMA Model. In: Institute of Electrical and Electronics Engineers, UKSim-AMSS 16th International Conference on Computer Modelling and Simulation. Washington, D.C., USA, 26 – 28 March 2014. IEEE Computer Society.
 
