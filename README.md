@@ -10,7 +10,7 @@ It is often thought that the stock market is an unpredictable, unforgiving and e
 
 Thus, for the purpose of this analysis, I will be comparing the use of multiple different machine learning techniques that have been applied using data collected from the Dow Jones Industrial Index, a stock market index following 30 of the biggest industrial companies in the United States, in order to determine which methods are the most effective in forecasting stock market data. The techniques chosen find their basis in recent literature and many of which are the most popular techniques found in recent years. The techniques being compared include a varying group of time series analysis methods including simple forecasting, linear regression, and ARIMA modelling techniques as well as artificial neural network (ANN) analysis. Both the time series techniques and ANN are commonly applied to the stock market and have a history of providing results. The analysis will begin with a brief introduction to the theory behind time series analysis, the theory behind ANN analysis and their relationships to the stock market to provide background. Following, exploratory data analysis will occur in which the data will be cleaned and manipulated. Next, the data will be split into training and testing groups to prepare for the machine learning algorithms where the various different techniques will be applied and models will be produced. These techniques will then be compared and discussed to gain a deeper understanding of their benefits and challenges.
 
-##Literature Review
+## Literature Review
 
 #### Time Series
 
@@ -37,7 +37,7 @@ The second variable Volume measures the amount of stock traded on that day. Retu
 ####	Correlations
 
  
-Figure 1. Correlation matrix of the 12 variables used in the study
+<sub>Figure 1. Correlation matrix of the 12 variables used in the study</sub>
 
 A correlation matrix was conducted on all variables excluding Date. This correlation test signified that all variables are independent. However, the highest correlation occurred between the variables NYSEReturn and Oil and was found to be significant. This correlation was positive 0.41 and is logical, as oil is expected to be a strong indicator in stock market price and NYSEReturn is measuring a stock market similar to the Dow Jones. The same positive significant correlation of 0.41 also occurred between ROC5 and Return4, meaning the rate of change from 5 days prior and the return from 4 days prior are somewhat related. The variable Close does not have a substantial correlation with any other variables thus, these variables are all acceptable. Therefore, all variables will be kept and the study will proceed.
 
@@ -52,26 +52,26 @@ All of the models used in this analysis will be compared against one another bas
 The frequency for the time series models was 252. The variable being transformed is Close, which attempts to predict the future closing prices in 2015 and 2016. See Appendix A3 and Figure 2 for graphs displaying the trend and seasonal decomposition data. The data was not normalized prior to calculations in order to attempt to predict exact prices. 
 
  
-Figure 2. Visualization of the trend of the variable Close over time
+<sub>Figure 2. Visualization of the trend of the variable Close over time</sub>
 
 #### i. Simple Forecasting Methods
 
 The first analysis run on the data were simple time series forecasting methods. These methods are the average method, the naïve method, and the seasonal naïve method. The naïve method uses the value from the last observation and the seasonal naïve method uses the value from the previous season. The average method was ineffective on this data and produced high errors and a poor graph, it was thus abandoned. The naïve method (see Figure 3) produced the smallest RMSE while the seasonal naïve method (see Appendix A4) produced a higher RMSE (Table 1). 
 
-Table 1. A summary table of the different metrics used to compare Simple Forecasting models 
+<sub>Table 1. A summary table of the different metrics used to compare Simple Forecasting models</sub>
 | Model |	Raw RMSE |	Raw MAE |	Normalized RMSE |
 | ---- | ----- | ----- | ----- |
 | Naïve Method |	793.1671 |	559.6588 |	0.085109976 |
 | Seasonal Naïve Method |	1241.509 |	1110.549 |	0.13321884 |
 
  
-Figure 3. Forecast of naïve method model displaying predicted, trend, and actual data
+<sub>Figure 3. Forecast of naïve method model displaying predicted, trend, and actual data</sub>
 
 #### ii. Linear Regression
 
 Following, various linear regression techniques were applied. The first technique was trend linear regression (Figure 4). This method produced a moderate error of 0.169 and a high R-squared of  0.916 (Table 2). Next, a regression using trend plus season was applied (Appendix A5). This method produced a higher error than the linear regression model using only trend (Table 2). The R-squared values between the two models were similar.  See Box 1 for summary.
 
-Table 2. A summary table of the different metrics used to compare Linear Regression models
+<sub>Table 2. A summary table of the different metrics used to compare Linear Regression models</sub>
 | Model |	Raw RMSE |	Raw MAE |	Normalized RMSE |	Adjusted-R Squared |
 | ---- | ----- | ----- | ------ | ------ |				
 | Linear Regression 1 |	1576.681 |	1328.289 |	0.169184125 |	0.9163 |
@@ -79,8 +79,10 @@ Table 2. A summary table of the different metrics used to compare Linear Regress
 | Linear Regression 3 |	1665.2 |	1393.739 |	0.178682565 |	0.915 |
 
  
-Figure 4. Forecast of Linear Regression Model 1 displaying predicted, trend, and actual data
-Box 1. Summary of important comparison metrics of Linear Regression Model 1
+<sub>Figure 4. Forecast of Linear Regression Model 1 displaying predicted, trend, and actual data</sub>
+
+<sub>Box 1. Summary of important comparison metrics of Linear Regression Model 1</sub>
+```
 > summary(close.trend)
 
 Call:
@@ -100,21 +102,23 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 560.8 on 1004 degrees of freedom
 Multiple R-squared:  0.9164,	Adjusted R-squared:  0.9163 
 F-statistic: 1.101e+04 on 1 and 1004 DF,  p-value: < 2.2e-16
+```
 
 ####	iii. Auto-Regressive Integrated Moving Average (ARIMA)
 
 The final time series method applied was the Auto-Regressive Integrated Moving Average (ARIMA) method. The ARIMA model (Figure 5) produced a raw RMSE of 1879.299 and an MAE of 1629.6. The normalized RMSE is 0.201656237 (Table 3). See Box 2 for the values of the training metrics against the model metrics. 
 
  
-Figure 5. Forecast of ARIMA Model displaying predicted, trend, and actual data
+<sub>Figure 5. Forecast of ARIMA Model displaying predicted, trend, and actual data</sub>
 
-Table 3. A summary table of the RMSE and MAE metrics between training and testing data in ARIMA Model
+<sub>Table 3. A summary table of the RMSE and MAE metrics between training and testing data in ARIMA Model</sub>
 | Model	| RMSE |	MAE |
 | ----- | ----- | ----- |
 |Training | 	116.4019 |	84.63129 |
 | Final Model |	1879.299 |	1629.6 |
 
-Box 2. Summary data displaying the error metrics of the ARIMA Model
+<sub>Box 2. Summary data displaying the error metrics of the ARIMA Model</sub>
+```
 > summary(close.ari)
 Series: dj4.tstr[, 2] 
 ARIMA(1,1,1) with drift 
@@ -130,6 +134,7 @@ AIC=12422.75   AICc=12422.79   BIC=12442.4
 Training set error measures:
                       ME     RMSE      MAE          MPE      MAPE       MASE       ACF1
 Training set -0.02160532 116.4019 84.63129 -0.006094711 0.6206636 0.05247471 0.01322913
+```
 
 ### B. Artificial Neural Networks
 
@@ -139,7 +144,7 @@ The target variable being predicted is again the variable Close which will be te
 
 The formula for the neural net algorithms is set to predict the variable Close based on the 10 predictor variables of Volume, Return2, Return3, Return4, ROC5, Oil, Gold, Gas, NYSEReturn, and DollarIndex. The first neural net algorithm contained zero hidden layers (see Appendix A7). It had a very poor performance in which correlation and adjusted R-squared were low (Table 4).  However, the RMSE of 0.2669626  and MAE of 0.2407253 were satisfactory. Now, further models will be explored in which the hidden layers are increased. A second model was run with 3 hidden layers which generated a higher correlation of 0.2302818 between predicted and actual values while the RMSE and MAE metrics stayed nearly the same as they had been in the previous model (Appendix A8 and A9). The R-squared of this model also increased slightly to 5% variance explained. Finally, a third model with even further hidden layers was run. This third and final model contained 6 hidden layers. This model proved to be the best model as it presented a higher correlation of 0.3190142 as well as slightly lower errors compared to the other two models (Table 4). See Figures 6 and 7 below for the visualization and scatterplot of the final neural net model. Finally, a variable importance calculation was run to determine which variables had the greatest influence. It was determined that NYSEReturn was the most significant variable in predicting the Close price (Appendix A10). 
 
-Table 4. A summary table of ANN analysis of 3 different models and the 4 metrics being used within the comparison 
+<sub>Table 4. A summary table of ANN analysis of 3 different models and the 4 metrics being used within the comparison</sub>
 |Model |	RMSE |	MAE |	R-squared  |	Correlation |
 | ----- | ----- | ----- | ------ | ----  |
 |Neural Net 1 |	0.2669626 |	0.2407253 |	0.01987 |	0.1476997 |
@@ -148,11 +153,12 @@ Table 4. A summary table of ANN analysis of 3 different models and the 4 metrics
 
 
  
-Figure 6.  Visualization of the hidden layers in neural net model 3 
+<sub>Figure 6.  Visualization of the hidden layers in neural net model 3</sub>
  
-Figure 7.  Scatterplot visualizing the actual versus predicted values in neural net model 3
+<sub>Figure 7.  Scatterplot visualizing the actual versus predicted values in neural net model 3</sub>
 
-Box 3. Neural net model 3 summary
+<sub>Box 3. Neural net model 3 summary</sub>
+```
 > summary(dj11.lm2)
 
 Call:
@@ -172,6 +178,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 0.2549 on 502 degrees of freedom
 Multiple R-squared:  0.1018,	Adjusted R-squared:  0.09998 
 F-statistic: 56.88 on 1 and 502 DF,  p-value: 2.19e-13
+```
 
 ## Discussion
 
@@ -187,7 +194,7 @@ The artificial neural network models all produced surprising results when consid
 	
 As the best models from each technique have now been selected it is necessary to compare all of these models to determine best fit. See Table 5 below for a summarized comparison of the normalized RMSE and MAE values as well as R-squared values for the models in which it applies. Upon first glance, it may be inferred that the naïve method results in the best model due to it having the lowest RMSE and MAE. However, it is very basic and not taking all factors into account but rather just using the previous days information to predict the next day. This could be effective but is not necessarily applicable when looking at a financial market because although it is more effective than looking at seasonality, large dips can occur between days due to unexpected events and it does not consider the overall trend. The ARIMA model is similarly likely not the best option. The variation between the training RMSE and final model RMSE is of great concern. The Dow Jones index is dealing in millions of dollars daily and having such a large difference in the price of the market between the training and testing set indicates this model was overfit. That leaves the final two models to be compared, either linear regression or neural networks. First, they have significantly different RMSE and MAE values. When considering that the scale they are being compared on is between 0 and 1, the difference between 0.17 and 0.26 is great. The linear regression model therefore has significantly lower error between its predicted and observed values, making it more reliable. People involved in the stock market like to be sure of their decisions and if one option is more reliable than the other it is an easy choice. The linear regression model is further embossed when considering its R-squared value compared to the neural network model. 91% versus 10% is a major difference. This means that the predictor variables in the linear regression model are accounting for 91% of the Close variable. This is quite reliable and would bring comfort to anybody investing in the stock market. Therefore, linear regression model 1 is the best fit model for the Dow Jones Index. 
 
-Table 5. Metrics used to compare all models
+<sub>Table 5. Metrics used to compare all models</sub>
 | Algorithm | Model |	Normalized RMSE |	Normalized MAE |	Adjusted-R Squared |
 | ----| ----- | ------ | ----- | ----- |
 | Time Series  |	Naïve Method  |	0.085109976 |	0.060053609 |	NA |
