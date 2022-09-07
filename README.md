@@ -119,7 +119,7 @@ The final time series method applied was the Auto-Regressive Integrated Moving A
 
 <sub>Table 3. A summary table of the RMSE and MAE metrics between training and testing data in ARIMA Model</sub>
 
-| Model*	| RMSE |	MAE |
+| Model	| RMSE |	MAE |
 | ----- | ----- | ----- |
 |Training | 	116.4019 |	84.63129 |
 | Final Model |	1879.299 |	1629.6 |
