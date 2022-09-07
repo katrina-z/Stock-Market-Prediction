@@ -36,8 +36,8 @@ The second variable Volume measures the amount of stock traded on that day. Retu
 
 ####	Correlations
 
-<sub>Figure 1. Correlation matrix of the 12 variables used in the study</sub>
- <img width="500" alt="image" src="https://user-images.githubusercontent.com/77642758/188866193-ef74fac1-eb66-433f-bb02-100b8ed2bf44.png">
+<p align="center"><sub>Figure 1. Correlation matrix of the 12 variables used in the study</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866193-ef74fac1-eb66-433f-bb02-100b8ed2bf44.png"></p>
 
 A correlation matrix was conducted on all variables excluding Date. This correlation test signified that all variables are independent. However, the highest correlation occurred between the variables NYSEReturn and Oil and was found to be significant. This correlation was positive 0.41 and is logical, as oil is expected to be a strong indicator in stock market price and NYSEReturn is measuring a stock market similar to the Dow Jones. The same positive significant correlation of 0.41 also occurred between ROC5 and Return4, meaning the rate of change from 5 days prior and the return from 4 days prior are somewhat related. The variable Close does not have a substantial correlation with any other variables thus, these variables are all acceptable. Therefore, all variables will be kept and the study will proceed.
 
@@ -52,8 +52,8 @@ All of the models used in this analysis will be compared against one another bas
 The frequency for the time series models was 252. The variable being transformed is Close, which attempts to predict the future closing prices in 2015 and 2016. See Appendix A3 and Figure 2 for graphs displaying the trend and seasonal decomposition data. The data was not normalized prior to calculations in order to attempt to predict exact prices. 
 
  
-<sub>Figure 2. Visualization of the trend of the variable Close over time</sub>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/77642758/188866312-6a877996-9093-41eb-9036-3be8bf16bffc.png">
+<p align="center"> <sub>Figure 2. Visualization of the trend of the variable Close over time</sub> </p>
+<p align="center"> <img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866312-6a877996-9093-41eb-9036-3be8bf16bffc.png"> </p>
 
 #### i. Simple Forecasting Methods
 
@@ -66,8 +66,8 @@ The first analysis run on the data were simple time series forecasting methods. 
 | Seasonal Naïve Method |	1241.509 |	1110.549 |	0.13321884 |
 
  
-<sub>Figure 3. Forecast of naïve method model displaying predicted, trend, and actual data</sub>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/77642758/188866346-29d553e9-aac3-4447-9978-b37a5f1851a4.png">
+<p align="center"><sub>Figure 3. Forecast of naïve method model displaying predicted, trend, and actual data</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866346-29d553e9-aac3-4447-9978-b37a5f1851a4.png"></p>
 
 #### ii. Linear Regression
 
@@ -81,8 +81,8 @@ Following, various linear regression techniques were applied. The first techniqu
 | Linear Regression 3 |	1665.2 |	1393.739 |	0.178682565 |	0.915 |
 
  
-<sub>Figure 4. Forecast of Linear Regression Model 1 displaying predicted, trend, and actual data</sub>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/77642758/188866375-7d484a3a-0080-4009-bdc3-abb842912c44.png">
+<p align="center"><sub>Figure 4. Forecast of Linear Regression Model 1 displaying predicted, trend, and actual data</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866375-7d484a3a-0080-4009-bdc3-abb842912c44.png"></p>
 
 <sub>Box 1. Summary of important comparison metrics of Linear Regression Model 1</sub>
 ```
@@ -112,8 +112,8 @@ F-statistic: 1.101e+04 on 1 and 1004 DF,  p-value: < 2.2e-16
 The final time series method applied was the Auto-Regressive Integrated Moving Average (ARIMA) method. The ARIMA model (Figure 5) produced a raw RMSE of 1879.299 and an MAE of 1629.6. The normalized RMSE is 0.201656237 (Table 3). See Box 2 for the values of the training metrics against the model metrics. 
 
  
-<sub>Figure 5. Forecast of ARIMA Model displaying predicted, trend, and actual data</sub>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/77642758/188866396-a9bb61f9-5833-41bf-aa04-cb276eb032d6.png">
+<p align="center"><sub>Figure 5. Forecast of ARIMA Model displaying predicted, trend, and actual data</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866396-a9bb61f9-5833-41bf-aa04-cb276eb032d6.png"></p>
 
 <sub>Table 3. A summary table of the RMSE and MAE metrics between training and testing data in ARIMA Model</sub>
 | Model	| RMSE |	MAE |
@@ -157,11 +157,11 @@ The formula for the neural net algorithms is set to predict the variable Close b
 
 
  
-<sub>Figure 6.  Visualization of the hidden layers in neural net model 3</sub>
- <img width="367" alt="image" src="https://user-images.githubusercontent.com/77642758/188866435-b93a2fb1-d147-44ed-90fa-d4a8fe3a6f87.png">
+<p align="center"><sub>Figure 6.  Visualization of the hidden layers in neural net model 3</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866435-b93a2fb1-d147-44ed-90fa-d4a8fe3a6f87.png"></p>
 
-<sub>Figure 7.  Scatterplot visualizing the actual versus predicted values in neural net model 3</sub>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/77642758/188866468-ee52fb25-a021-46b0-a6a7-f63cae454d2a.png">
+<p align="center"><sub>Figure 7.  Scatterplot visualizing the actual versus predicted values in neural net model 3</sub></p>
+<p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/77642758/188866468-ee52fb25-a021-46b0-a6a7-f63cae454d2a.png"></p>
 
 <sub>Box 3. Neural net model 3 summary</sub>
 ```
